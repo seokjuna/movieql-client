@@ -9,7 +9,7 @@ const GET_MOVIE = gql`
             title
             medium_cover_image
             rating
-            
+            isLiked @client
         }
     }
 `;
@@ -70,6 +70,9 @@ function Movie() {
                 <Subtitle>
                 ⭐️ {data?.movie?.rating}
                 </Subtitle>
+                <button>
+                    {data?.movie?.isLied ? "Unlike" : "Like"}
+                </button>
             </Column>
             <Image bg={data?.movie?.medium_cover_image} />
         </Container>
